@@ -22,27 +22,27 @@ public interface BootRepository extends CrudRepository<Boot, Integer>{
     public List<Boot> findByQuantity(Integer minQuantity);
     public List<Boot> findByBestSellerTrue();
 
-    List<Boot> findByMaterialAndTypeAndSizeAndQuantityAndBestSellerTrue(String material, BootType type, Float size, Integer minQuantity, Boolean bestSeller);
+    List<Boot> findByMaterialAndTypeAndSizeAndQuantityAndBestSeller(String material, BootType type, Float size, Integer minQuantity, Boolean bestSeller);
 
-    List<Boot> findByMaterialAndTypeAndSizeAndBestSellerTrue(String material, BootType type, Float size, Boolean bestSeller);
+    List<Boot> findByMaterialAndTypeAndSizeAndBestSeller(String material, BootType type, Float size, Boolean bestSeller);
 
-    List<Boot> findByMaterialAndTypeAndQuantityAndBestSellerTrue(String material, BootType type, Integer minQuantity, Boolean bestSeller);
+    List<Boot> findByMaterialAndTypeAndQuantityAndBestSeller(String material, BootType type, Integer minQuantity, Boolean bestSeller);
 
-    List<Boot> findByMaterialAndTypeAndBestSellerTrue(String material, BootType type, Boolean bestSeller);
+    List<Boot> findByMaterialAndTypeAndBestSeller(String material, BootType type, Boolean bestSeller);
 
-    List<Boot> findByMaterialAndBestSellerTrue(String material, Boolean bestSeller);
+    List<Boot> findByMaterialAndBestSeller(String material, Boolean bestSeller);
 
-    List<Boot> findByTypeAndSizeAndQuantityAndBestSellerTrue(BootType type, Float size, Integer minQuantity, Boolean bestSeller);
+    List<Boot> findByTypeAndSizeAndQuantityAndBestSeller(BootType type, Float size, Integer minQuantity, Boolean bestSeller);
 
-    List<Boot> findByTypeAndSizeAndBestSellerTrue(BootType type, Float size, Boolean bestSeller);
+    List<Boot> findByTypeAndSizeAndBestSeller(BootType type, Float size, Boolean bestSeller);
 
-    List<Boot> findByTypeAndBestSellerTrue(BootType type, Boolean bestSeller);
+    List<Boot> findByTypeAndBestSeller(BootType type, Boolean bestSeller);
 
-    List<Boot> findByTypeAndQuantityAndBestSellerTrue(BootType type, Integer minQuantity, Boolean bestSeller);
+    List<Boot> findByTypeAndQuantityAndBestSeller(BootType type, Integer minQuantity, Boolean bestSeller);
 
-    List<Boot> findBySizeAndQuantityAndBestSellerTrue(Float size, Integer minQuantity, Boolean bestSeller);
+    List<Boot> findBySizeAndQuantityAndBestSeller(Float size, Integer minQuantity, Boolean bestSeller);
 
-    List<Boot> findBySizeAndBestSellerTrue(Float size, Boolean bestSeller);
+    List<Boot> findBySizeAndBestSeller(Float size, Boolean bestSeller);
 
-    List<Boot> findByQuantityAndBestSellerTrue(Integer minQuantity, Boolean bestSeller);
+    List<Boot> findByQuantityAndBestSeller(Integer minQuantity, Boolean bestSeller);
 }
