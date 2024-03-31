@@ -24,7 +24,7 @@ import com.codecademy.boots.exceptions.QueryNotSupportedException;
 @RestController
 @RequestMapping("/api/v1/boots")
 public class BootController {
-    private BootRepository bootRepository;
+    private final BootRepository bootRepository;
     public BootController(BootRepository bootRepository){
         this.bootRepository = bootRepository;
     }
@@ -155,15 +155,15 @@ public class BootController {
         if (notNullMaterial) {
             if (notNullType && notNullSize && notNullQuantity && notNullBSeller) {
                 // call the repository method that accepts a material, type, size, and minimum quantity
-                return this.bootRepository.findByMaterialAndTypeAndSizeAndQuantityAndBestSellerTrue(material, type, size, minQuantity, bestSeller);
+                return this.bootRepository.findByMaterialAndTypeAndSizeAndQuantityAndBestSeller(material, type, size, minQuantity, bestSeller);
             }
             if (notNullType && notNullSize && notNullBSeller) {
                 // call the repository method that accepts a material, type, size, and minimum quantity
-                return this.bootRepository.findByMaterialAndTypeAndSizeAndBestSellerTrue(material, type, size, bestSeller);
+                return this.bootRepository.findByMaterialAndTypeAndSizeAndBestSeller(material, type, size, bestSeller);
             }
             if (notNullType && notNullQuantity && notNullBSeller) {
                 // call the repository method that accepts a material, type, size, and minimum quantity
-                return this.bootRepository.findByMaterialAndTypeAndQuantityAndBestSellerTrue(material, type, minQuantity, bestSeller);
+                return this.bootRepository.findByMaterialAndTypeAndQuantityAndBestSeller(material, type, minQuantity, bestSeller);
             }
             if (notNullType && notNullSize && notNullQuantity) {
                 // call the repository method that accepts a material, type, size, and minimum quantity
@@ -171,7 +171,7 @@ public class BootController {
             }
             if (notNullType && notNullBSeller) {
                 // call the repository method that accepts a material, type, size, and minimum quantity
-                return this.bootRepository.findByMaterialAndTypeAndBestSellerTrue(material, type, bestSeller);
+                return this.bootRepository.findByMaterialAndTypeAndBestSeller(material, type, bestSeller);
             }
             if (notNullType && notNullSize) {
                 // call the repository method that accepts a material, size, and type
@@ -183,7 +183,7 @@ public class BootController {
             }
             if (notNullBSeller) {
                 // call the repository method that accepts a material, type, size, and minimum quantity
-                return this.bootRepository.findByMaterialAndBestSellerTrue(material, bestSeller);
+                return this.bootRepository.findByMaterialAndBestSeller(material, bestSeller);
             }
             if (notNullType) {
                 // call the repository method that accepts a material and a type
@@ -197,15 +197,15 @@ public class BootController {
         if (notNullType) {
             if (notNullSize && notNullQuantity && notNullBSeller) {
                 // call the repository method that accepts a type, size, and minimum quantity
-                return this.bootRepository.findByTypeAndSizeAndQuantityAndBestSellerTrue(type, size, minQuantity, bestSeller);
+                return this.bootRepository.findByTypeAndSizeAndQuantityAndBestSeller(type, size, minQuantity, bestSeller);
             }
             if (notNullQuantity && notNullBSeller) {
                 // call the repository method that accepts a type, size, and minimum quantity
-                return this.bootRepository.findByTypeAndQuantityAndBestSellerTrue(type, minQuantity, bestSeller);
+                return this.bootRepository.findByTypeAndQuantityAndBestSeller(type, minQuantity, bestSeller);
             }
             if (notNullSize && notNullBSeller) {
                 // call the repository method that accepts a type, size, and minimum quantity
-                return this.bootRepository.findByTypeAndSizeAndBestSellerTrue(type, size, bestSeller);
+                return this.bootRepository.findByTypeAndSizeAndBestSeller(type, size, bestSeller);
             }
             if (notNullSize && notNullQuantity) {
                 // call the repository method that accepts a type, size, and minimum quantity
@@ -213,7 +213,7 @@ public class BootController {
             }
             if (notNullBSeller) {
                 // call the repository method that accepts a type, size, and minimum quantity
-                return this.bootRepository.findByTypeAndBestSellerTrue(type, bestSeller);
+                return this.bootRepository.findByTypeAndBestSeller(type, bestSeller);
             }
             if (notNullSize) {
                 // call the repository method that accepts a type and a size
@@ -231,7 +231,7 @@ public class BootController {
         if (notNullSize) {
             if (notNullQuantity && notNullBSeller) {
                 // call the repository method that accepts a size and a minimum quantity
-                return this.bootRepository.findBySizeAndQuantityAndBestSellerTrue(size, minQuantity, bestSeller);
+                return this.bootRepository.findBySizeAndQuantityAndBestSeller(size, minQuantity, bestSeller);
             }
             if (notNullQuantity) {
                 // call the repository method that accepts a size and a minimum quantity
@@ -239,7 +239,7 @@ public class BootController {
             }
             if (notNullBSeller) {
                 // call the repository method that accepts a size and a minimum quantity
-                return this.bootRepository.findBySizeAndBestSellerTrue(size, bestSeller);
+                return this.bootRepository.findBySizeAndBestSeller(size, bestSeller);
             }
             else {
                 // call the repository method that accepts only a size
@@ -249,7 +249,7 @@ public class BootController {
         if (Objects.nonNull(minQuantity)) {
             // call the repository method that accepts only a minimum quantity
             if (Objects.nonNull(bestSeller)){
-                return this.bootRepository.findByQuantityAndBestSellerTrue(minQuantity, bestSeller);
+                return this.bootRepository.findByQuantityAndBestSeller(minQuantity, bestSeller);
             }
             else {
                 return this.bootRepository.findByQuantity(minQuantity);
