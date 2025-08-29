@@ -5,6 +5,9 @@ build/
 # Log files
 *.log
 
+# Runtime data
+data/
+
 # Maven specific files
 pom.xml.tag
 pom.xml.releaseBackup
